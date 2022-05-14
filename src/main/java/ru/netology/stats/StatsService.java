@@ -14,8 +14,8 @@ public class StatsService {
         for (long sale : sales) {
             arithmeticMean += sale;
         }
-        return arithmeticMean / 12;
-
+        arithmeticMean = arithmeticMean / sales.length;
+        return arithmeticMean;
     }
 
     public int maxSales(long[] sales) {
@@ -45,10 +45,15 @@ public class StatsService {
     }
 
     public int numberMonthsMinMiddle(long[] sales) {
+        int arithmeticMean = 0;
+        for (long sale : sales) {
+            arithmeticMean += sale;
+        }
+        arithmeticMean = arithmeticMean / sales.length;
         int numberMonthsMinMiddle = 0;
         int month = 0;
         for (long sale : sales) {
-            if (sale < 15) {
+            if (sale < arithmeticMean) {
                 month++;
                 numberMonthsMinMiddle = month;
             }
@@ -57,10 +62,15 @@ public class StatsService {
     }
 
     public int numberMonthsMaxMiddle(long[] sales) {
+        int arithmeticMean = 0;
+        for (long sale : sales) {
+            arithmeticMean += sale;
+        }
+        arithmeticMean = arithmeticMean / sales.length;
         int numberMonthsMaxMiddle = 0;
         int month = 0;
         for (long sale : sales) {
-            if (sale > 15) {
+            if (sale > arithmeticMean) {
                 month++;
                 numberMonthsMaxMiddle = month;
             }
