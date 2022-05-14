@@ -11,10 +11,8 @@ public class StatsService {
 
     public int arithmeticMean(long[] sales) {
         int arithmeticMean = 0;
-        for (long sale : sales) {
-            arithmeticMean += sale;
-        }
-        arithmeticMean = arithmeticMean / sales.length;
+        for (long sale : sales)
+            arithmeticMean = sum(sales) / sales.length;
         return arithmeticMean;
     }
 
@@ -32,10 +30,8 @@ public class StatsService {
 
     public int minSales(long[] sales) {
         int minMonth = 0;
-        int month = 0; // переменная для индекса рассматриваемого месяца в массиве
+        int month = 0;
         for (long sale : sales) {
-            // sales[minMonth] - продажи в месяце minMonth
-            // sale - продажи в рассматриваемом месяце
             if (sale <= sales[minMonth]) {
                 minMonth = month;
             }
@@ -45,15 +41,10 @@ public class StatsService {
     }
 
     public int numberMonthsMinMiddle(long[] sales) {
-        int arithmeticMean = 0;
-        for (long sale : sales) {
-            arithmeticMean += sale;
-        }
-        arithmeticMean = arithmeticMean / sales.length;
         int numberMonthsMinMiddle = 0;
         int month = 0;
         for (long sale : sales) {
-            if (sale < arithmeticMean) {
+            if (sale < arithmeticMean(sales)) {
                 month++;
                 numberMonthsMinMiddle = month;
             }
@@ -62,15 +53,10 @@ public class StatsService {
     }
 
     public int numberMonthsMaxMiddle(long[] sales) {
-        int arithmeticMean = 0;
-        for (long sale : sales) {
-            arithmeticMean += sale;
-        }
-        arithmeticMean = arithmeticMean / sales.length;
         int numberMonthsMaxMiddle = 0;
         int month = 0;
         for (long sale : sales) {
-            if (sale > arithmeticMean) {
+            if (sale > arithmeticMean(sales)) {
                 month++;
                 numberMonthsMaxMiddle = month;
             }
